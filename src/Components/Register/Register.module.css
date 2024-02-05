@@ -1,0 +1,43 @@
+.register {
+    background-color: #61b0fe7c;
+    width: 100vw;
+    height: 100vh;
+}
+
+.register__btns {
+    display: flex;
+    gap: 15px;
+    position: fixed;
+    right: 40px;
+    top: 40px;
+}
+
+.register__btn{
+    display: block;
+    color: #0D1117;
+    width: 225px;
+    border: 3px solid #0D1117;
+    border-radius: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.register__btn--active{
+    display: block;
+    color: #61b0fe;
+    width: 225px;
+    border: 3px solid #61b0fe;
+    border-radius: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    text-decoration: none;
+}

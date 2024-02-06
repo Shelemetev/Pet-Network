@@ -1,17 +1,21 @@
 import React from "react"
 import s from './Register.module.css'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import RegisterForm from './RegisterForm/RegisterForm';
 
-const Register = React.memo((props) => {
 
-    let setActive = ({ isActive }) => (isActive ? s['register__btn--active'] : s['register__btn'])
+const Register = React.memo(({registredThunk}) => {
+
+    const setActive = ({ isActive }) => (isActive ? s['register__btn--active'] : s['register__btn'])
+
 
     return (
         <div className={s.register}>
-            <div className={s.register__btns}>        
+            <div className={s.register__btns}>
                 <NavLink to={'/'} className={setActive}>LOGIN</NavLink>
                 <NavLink to={'/register'} className={setActive}>REGISTER</NavLink>
             </div>
+            <RegisterForm registredThunk={registredThunk}/>
         </div>
     )
 })

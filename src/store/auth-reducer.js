@@ -1,4 +1,5 @@
 
+import { Auth } from './../api/api';
 const stateInitial = {
     id: 0,
     username: "string",
@@ -24,3 +25,10 @@ const authReducer = (state = stateInitial, action) => {
 }
 
 export default authReducer
+
+export const registredThunk = (object) => async(dispatch) => {
+    const data = await Auth.Registred(object)
+
+    console.log(data);
+    console.log('dfdf');
+}

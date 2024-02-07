@@ -1,15 +1,20 @@
-
 import { Auth } from './../api/api';
+
+const REGISTER_STATUS_SET = 'register-status-set'
+
 const stateInitial = {
-    id: 0,
-    username: "string",
-    firstName: "string",
-    lastName: "string",
-    email: "string",
-    password: "string",
-    phone: "string",
-    userStatus: 0,
-    statusAuthorization : false
+    data: {
+        id: 0,
+        username: "string",
+        firstName: "string",
+        lastName: "string",
+        email: "string",
+        password: "string",
+        phone: "string",
+        userStatus: 0
+    },
+    statusAuthorization : false,
+    registerStatus : ''   
 }
 
 const authReducer = (state = stateInitial, action) => {
@@ -19,6 +24,9 @@ const authReducer = (state = stateInitial, action) => {
     }
 
     switch (action.type) {
+        case REGISTER_STATUS_SET:
+            stateCopy.registerStatus = action.bolean
+            return stateCopy
         default:
             return stateCopy;
     }
@@ -26,9 +34,17 @@ const authReducer = (state = stateInitial, action) => {
 
 export default authReducer
 
+const registerStatusSet = (bolean) => ({type:REGISTER_STATUS_SET, bolean:bolean}) 
+
 export const registredThunk = (object) => async(dispatch) => {
     const data = await Auth.Registred(object)
 
-    console.log(data);
-    console.log('dfdf');
+    if(data) {
+        if(data.code === 200) {
+            dispatch(registerStatusSet(true))
+        } else {
+            dispatch(registerStatusSet(false))
+        }
+    }
+    
 }

@@ -4,10 +4,9 @@ import { NavLink } from 'react-router-dom'
 import RegisterForm from './RegisterForm/RegisterForm';
 
 
-const Register = React.memo(({registredThunk}) => {
+const Register = React.memo(({registredThunk, registerStatus}) => {
 
     const setActive = ({ isActive }) => (isActive ? s['register__btn--active'] : s['register__btn'])
-
 
     return (
         <div className={s.register}>
@@ -15,7 +14,7 @@ const Register = React.memo(({registredThunk}) => {
                 <NavLink to={'/'} className={setActive}>LOGIN</NavLink>
                 <NavLink to={'/register'} className={setActive}>REGISTER</NavLink>
             </div>
-            <RegisterForm registredThunk={registredThunk}/>
+            <RegisterForm registerStatus={registerStatus} registredThunk={registredThunk}/>
         </div>
     )
 })

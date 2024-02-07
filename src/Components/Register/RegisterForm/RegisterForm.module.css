@@ -49,3 +49,31 @@
 .form__text {
     margin-bottom: -16px;
 }
+
+.status--true {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 400px;
+    height: 50px;
+    border-radius: 20px;
+    top: -60px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: rgba(127, 255, 133, 0.486);
+}
+
+.status--false {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 400px;
+    height: 50px;
+    border-radius: 20px;
+    top: -60px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: rgba(255, 127, 127, 0.486);
+}

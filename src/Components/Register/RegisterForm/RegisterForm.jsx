@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import s from './RegisterForm.module.css'
 import { Formik } from 'formik';
+import { useState } from 'react';
 
-const RegisterForm = React.memo(({registredThunk}) => {
+const RegisterForm = React.memo(({registredThunk,registerStatus}) => {
 
-    const registeStart = (values, { setSubmitting }) => {
-    
+    let[activeMode, setActiveMode] = useState(false)
+
+    useEffect(() => {
+        if(activeMode === true) {
+            setTimeout(() => setActiveMode(false),5000)
+        }
+    }, [activeMode,setActiveMode])
+
+    const registerStart = (values, { setSubmitting }) => {
+        setActiveMode(true)
         registredThunk(values)
-
         setSubmitting(false)
     }
 
@@ -21,7 +29,7 @@ const RegisterForm = React.memo(({registredThunk}) => {
     }
 
     return (
-        <Formik initialValues={initialValues} onSubmit={registeStart}>
+        <Formik initialValues={initialValues} onSubmit={registerStart}>
             {({
             values,
             errors,
@@ -32,6 +40,7 @@ const RegisterForm = React.memo(({registredThunk}) => {
             isSubmitting,
             }) => (
                 <form className={s.form} onSubmit={handleSubmit}>
+                    {activeMode ? (registerStatus? <div className={s['status--true']}>you have successfully logged in</div> : <div className={s['status--false']}>Registration failed</div>) : (<></>)}
                     <p className={s.form__text}>username</p>
                     <div className={s['form__input-box']}>
                         <input className={s.form__input} type="text" name="username" onChange={handleChange} value={values.username} onBlur={handleBlur} /> 

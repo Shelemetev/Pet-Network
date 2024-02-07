@@ -1,4 +1,5 @@
 import { Auth } from './../api/api';
+import { stopLoader } from './searching-reducer';
 
 const REGISTER_STATUS_SET = 'register-status-set'
 
@@ -42,8 +43,10 @@ export const registredThunk = (object) => async(dispatch) => {
     if(data) {
         if(data.code === 200) {
             dispatch(registerStatusSet(true))
+            dispatch(stopLoader())
         } else {
             dispatch(registerStatusSet(false))
+            dispatch(stopLoader())
         }
     }
     

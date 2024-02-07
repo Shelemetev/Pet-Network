@@ -3,7 +3,7 @@ import s from './RegisterForm.module.css'
 import { Formik } from 'formik';
 import { useState } from 'react';
 
-const RegisterForm = React.memo(({registredThunk,registerStatus}) => {
+const RegisterForm = React.memo(({registredThunk,registerStatus,startLoader}) => {
 
     let[activeMode, setActiveMode] = useState(false)
 
@@ -14,6 +14,7 @@ const RegisterForm = React.memo(({registredThunk,registerStatus}) => {
     }, [activeMode,setActiveMode])
 
     const registerStart = (values, { setSubmitting }) => {
+        startLoader()
         setActiveMode(true)
         registredThunk(values)
         setSubmitting(false)

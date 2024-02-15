@@ -5,7 +5,7 @@ export const RedirectHOC = (Component) => {
     
     const RedirectComponent = (props) => {
         if(props.statusAuthorization === true) {
-            return <Component />
+            return <Component {...props} />
         } else {
             return <LoginContainer />
         }

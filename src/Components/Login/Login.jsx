@@ -1,8 +1,9 @@
 import React from "react"
 import s from './Login.module.css'
 import {NavLink} from 'react-router-dom'
+import LoginForm from './LoginForm/LoginForm';
 
-const Login = React.memo(() => {
+const Login = React.memo(({loginThunk,startLoader}) => {
 
     let setActive = ({ isActive }) => (isActive ? s['login__btn--active'] : s['login__btn'])
 
@@ -12,6 +13,7 @@ const Login = React.memo(() => {
                 <NavLink to={'/'} className={setActive}>LOGIN</NavLink>
                 <NavLink to={'/register'} className={setActive}>REGISTER</NavLink>
             </div>
+            <LoginForm loginThunk={loginThunk} startLoader={startLoader}/>
         </div>
     )
 })

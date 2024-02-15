@@ -1,5 +1,5 @@
 import React from 'react';
-import Login from './../Components/Login/Login';
+import LoginContainer from './../Components/Login/LoginContainer';
 
 export const RedirectHOC = (Component) => {
     
@@ -7,7 +7,7 @@ export const RedirectHOC = (Component) => {
         if(props.statusAuthorization === true) {
             return <Component />
         } else {
-            return <Login />
+            return <LoginContainer />
         }
     }
 

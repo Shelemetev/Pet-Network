@@ -4,6 +4,7 @@ import { stopLoader } from './searching-reducer';
 const REGISTER_STATUS_SET = 'register-status-set'
 const STATUS_AUTORIZATION_SET = 'status-autorization-set'
 const SET_DATA = 'set-data'
+const SET_ERROR = 'set-error'
 
 const stateInitial = {
     data: {
@@ -17,7 +18,8 @@ const stateInitial = {
         userStatus: 0
     },
     statusAuthorization : false,
-    registerStatus : false   
+    registerStatus : false,
+    error:''   
 }
 
 const authReducer = (state = stateInitial, action) => {
@@ -36,6 +38,9 @@ const authReducer = (state = stateInitial, action) => {
         case SET_DATA: 
             stateCopy.data = {...action.data}  
             return stateCopy  
+        case SET_ERROR:
+            stateCopy.error = action.error
+            return stateCopy 
         default:
             return stateCopy;
     }
@@ -48,6 +53,8 @@ const registerStatusSet = (bolean) => ({type:REGISTER_STATUS_SET, bolean:bolean}
 const statusAuthorizationSet = (bolean) => ({type: STATUS_AUTORIZATION_SET,bolean:bolean}) 
 
 const setData = (data) => ({type:SET_DATA,data:data})
+
+const setError = (error) => ({type:SET_ERROR,error:error})
 
 export const registredThunk = (object) => async(dispatch) => {
     const data = await Auth.Registred(object)
@@ -65,26 +72,31 @@ export const registredThunk = (object) => async(dispatch) => {
 }
 
 export const loginThunk = (object) => async(dispatch) => {
-    const data = await Auth.Login(object)
+    try {
+        const data = await Auth.Login(object)
 
-    if(data) {
-        console.log(object);
-        if(data.code === 200) {
-            dispatch(getDataThunk(object.username,object.password))
-        } 
+        if(data) {
+            if(data.code === 200) {
+                dispatch(getDataThunk(object.username,object.password))
+            } 
+        }
+    } catch(error) {
+        
     }
 }
 
-export const getDataThunk = (username,password) => async(dispatch) => {
-    const data = await Auth.GetData(username)
+export const getDataThunk = (username,password) => async(dispatch) => {  
+    try {
+        const data = await Auth.GetData(username)
 
-    if(data ) {
-        console.log(data);
-        console.log(data.password,password);
-        if (data.password === password) {
-            console.log(data);
-            dispatch(setData(data)) 
-            dispatch(statusAuthorizationSet(true))
-        }
-    } 
+        if(data ) {
+            if (data.password === password) {
+                console.log(data);
+                dispatch(setData(data)) 
+                dispatch(statusAuthorizationSet(true))
+            }
+        } 
+    } catch(error) {
+        dispatch(setError(error.response.data.message))
+    }
 }

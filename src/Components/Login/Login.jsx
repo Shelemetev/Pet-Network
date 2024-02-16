@@ -2,8 +2,15 @@ import React from "react"
 import s from './Login.module.css'
 import {NavLink} from 'react-router-dom'
 import LoginForm from './LoginForm/LoginForm';
+import { useEffect } from "react";
 
-const Login = React.memo(({loginThunk,startLoader}) => {
+const Login = React.memo(({loginThunk,startLoader,error,stopLoader}) => {
+
+    useEffect(() => {
+        if (error !== '') {
+            stopLoader()
+        }
+    },[error,stopLoader])
 
     let setActive = ({ isActive }) => (isActive ? s['login__btn--active'] : s['login__btn'])
 
@@ -13,7 +20,7 @@ const Login = React.memo(({loginThunk,startLoader}) => {
                 <NavLink to={'/'} className={setActive}>LOGIN</NavLink>
                 <NavLink to={'/register'} className={setActive}>REGISTER</NavLink>
             </div>
-            <LoginForm loginThunk={loginThunk} startLoader={startLoader}/>
+            <LoginForm error={error} loginThunk={loginThunk} startLoader={startLoader}/>
         </div>
     )
 })

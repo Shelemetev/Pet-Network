@@ -5,3 +5,7 @@ export const getStatusAuthorization = (state) => {
 export const getRegisterStatus = (state) => {
     return state.authData.registerStatus
 }
+
+export const getError = (state) => {
+    return state.authData.error
+}

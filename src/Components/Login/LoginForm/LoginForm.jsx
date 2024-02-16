@@ -16,7 +16,18 @@ const LoginForm = React.memo(({loginThunk,startLoader}) => {
     }
 
     return (
-        <Formik initialValues={initialValues} onSubmit={onSubmit}>
+        <Formik initialValues={initialValues} onSubmit={onSubmit}
+            validate={values => {
+                const errors = {}
+                if (!values.username) {
+                    errors.username = "Enter the user name"
+                } 
+                if (!values.password) {
+                    errors.password = "Enter the password"
+                }   
+                return errors
+            }}
+        >
             {({
          values,
          errors,
@@ -31,9 +42,15 @@ const LoginForm = React.memo(({loginThunk,startLoader}) => {
             <div className={s['form__input-box']}>
                 <input className={s.form__input} type="text" name="username" onChange={handleChange} value={values.username} onBlur={handleBlur} /> 
             </div>
+            <div className={s.error__box}>
+                <p className={s.error__text}>{errors.username}</p>
+            </div>
             <p className={s.form__text}>password</p>
             <div className={s['form__input-box']}>
                 <input className={s.form__input} type="text" name="password" onChange={handleChange} value={values.password} onBlur={handleBlur} /> 
+            </div>
+            <div className={s.error__box}>
+                <p className={s.error__text}>{errors.password}</p>
             </div>
             <button className={s.form__btn} disabled={isSubmitting}>
                 Войти

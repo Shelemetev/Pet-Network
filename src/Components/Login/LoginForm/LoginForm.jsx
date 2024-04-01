@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import s from './LoginForm.module.css'
 import { Formik } from 'formik';
 
 const LoginForm = React.memo(({loginThunk,startLoader,error}) => {
+
+    let[activeMode, setActiveMode] = useState(false)
+
+    useEffect(() => {
+        if(activeMode === true) {
+            setTimeout(() => setActiveMode(false),5000)
+        }
+    }, [activeMode,setActiveMode])
  
     const onSubmit = (values, { setSubmitting }) => {
         startLoader()
         loginThunk(values);
-        setSubmitting(false)
+        setSubmitting(false);
+        setActiveMode(true)
     }
 
     const initialValues = {
@@ -38,7 +47,7 @@ const LoginForm = React.memo(({loginThunk,startLoader,error}) => {
          isSubmitting
        }) => (
          <form className={s.form} onSubmit={handleSubmit}>
-            {error && <div className={s['status--false']}>{error}</div>}
+            {activeMode && error && <div className={s['status--false']}>{error}</div>}
             <p className={s.form__text}>username</p>
             <div className={s['form__input-box']}>
                 <input className={s.form__input} type="text" name="username" onChange={handleChange} value={values.username} onBlur={handleBlur} /> 

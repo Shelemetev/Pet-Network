@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
 const RegisterContainer = connect(mapStateToProps,
     {
         registredThunk,
-        startLoader
+        startLoader,     
     })(Register)
 
 export default RegisterContainer

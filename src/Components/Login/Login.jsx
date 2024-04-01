@@ -4,13 +4,20 @@ import {NavLink} from 'react-router-dom'
 import LoginForm from './LoginForm/LoginForm';
 import { useEffect } from "react";
 
-const Login = React.memo(({loginThunk,startLoader,error,stopLoader}) => {
+const Login = React.memo(({loginThunk,startLoader,error,stopLoader,statusAuthorization}) => {
 
     useEffect(() => {
-        if (error !== '') {
-            stopLoader()
-        }
+        // if (error != '') {
+        //     stopLoader()
+        // }
+        stopLoader( )
     },[error,stopLoader])
+
+    // useEffect(() => {
+    //     if (statusAuthorization === false) {
+    //         stopLoader()
+    //     }
+    // },[statusAuthorization,stopLoader])
 
     let setActive = ({ isActive }) => (isActive ? s['login__btn--active'] : s['login__btn'])
 

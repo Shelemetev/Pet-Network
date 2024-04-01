@@ -7,6 +7,8 @@ const RegisterForm = React.memo(({registredThunk,registerStatus,startLoader}) =>
 
     let[activeMode, setActiveMode] = useState(false)
 
+    let[id, setId] = useState(Math.floor(Math.random() * 10000))
+
     useEffect(() => {
         if(activeMode === true) {
             setTimeout(() => setActiveMode(false),5000)
@@ -14,6 +16,16 @@ const RegisterForm = React.memo(({registredThunk,registerStatus,startLoader}) =>
     }, [activeMode,setActiveMode])
 
     const registerStart = (values, { setSubmitting }) => {
+        // let object = {
+        //     id: 800,
+        //     username: values.username,
+        //     firstName: values.firstName,
+        //     lastName: values.lastName,
+        //     email: values.email,
+        //     password: values.password,
+        //     phone: values.phone,
+        //     userStatus: 0
+        // }
         startLoader()
         setActiveMode(true)
         registredThunk(values)
@@ -21,12 +33,14 @@ const RegisterForm = React.memo(({registredThunk,registerStatus,startLoader}) =>
     }
 
     const initialValues = {
+        id: id,
         username:'',
         firstName: '',
         lastName: '',
         email: '',
         password: '',
-        phone: ''
+        phone: '',
+        userStatus: 0
     }
 
     return (

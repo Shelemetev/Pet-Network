@@ -3,13 +3,13 @@ import LoginContainer from './../Components/Login/LoginContainer';
 
 export const RedirectHOC = (Component) => {
     
-    const RedirectComponent = (props) => {
+    const RedirectComponent = React.memo((props) => {
         if(props.statusAuthorization === true) {
             return <Component {...props} />
         } else {
             return <LoginContainer />
         }
-    }
+    })
 
     return RedirectComponent
 }

@@ -1,0 +1,82 @@
+.pet__icon {
+    border: 2px solid #49CC90;
+    background-color: #E8F6F0;
+    border-radius: 36px;
+    padding: 0 10px;
+    position: relative;
+}
+
+.pet__icon-img--box {
+    width: 140px;
+    height: 140px;
+    border: 2px solid #49CC90;
+    border-radius: 50%;
+    margin: 15px auto 0 auto;
+    position: relative;
+}
+
+.pet__icon-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    padding: 1px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.pet__icon-text {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.pet__icon-btn--update {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 150px;
+    right: 10px;
+    background: transparent;
+    border: none;
+}
+
+.pet__icon-btn--img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.pet__icon-file {
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    top: 150px;
+    right: 127px;
+}
+
+.pet__icon-file--lable {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 150px;
+    right: 55px;
+    background: transparent;
+    border: none;
+    display: block;
+}
+
+.pet__icon-file--img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}

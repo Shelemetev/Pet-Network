@@ -5,13 +5,14 @@ import { RedirectHOC } from './../../HOC/RedirectHOC';
 import { getStatusAuthorization } from '../../store/store-selectors/auth-selector';
 import { stopLoader,startLoader } from './../../store/searching-reducer';
 import { addPetThunk, updatePhotoPetThunk } from '../../store/pet-reducer';
-import { getPetData } from '../../store/store-selectors/pet-selector';
-import { updatePetDataThunk } from './../../store/pet-reducer';
+import { getIdUpdate, getPetData } from '../../store/store-selectors/pet-selector';
+import { updatePetDataThunk,setIdUpdate } from './../../store/pet-reducer';
 
 const mapStateToProps = (state) => {
     return {
         statusAuthorization : getStatusAuthorization(state),
-        dataPet: getPetData(state)
+        dataPet: getPetData(state),
+        idUpdate: getIdUpdate(state)
     }
 }
 
@@ -21,7 +22,9 @@ const PetContainer = compose(
         addPetThunk,
         startLoader,
         updatePhotoPetThunk,
-        updatePetDataThunk
+        updatePetDataThunk,
+        setIdUpdate,
+   
     }),
     RedirectHOC
 )(Pet)

@@ -4,7 +4,7 @@ import PetFormAdd from './PetForm/PetFormAdd';
 import PetIcons from './PetIcons/PetIcons';
 import PetFormUpdate from './PetFormUpdate/PetFormUpdate';
 
-const Pet = React.memo(({stopLoader,addPetThunk,startLoader,dataPet,updatePhotoPetThunk,updatePetDataThunk}) => {
+const Pet = React.memo(({stopLoader,addPetThunk,startLoader,dataPet,updatePhotoPetThunk,updatePetDataThunk,idUpdate,setIdUpdate}) => {
 
     let[addActive, setAddActive] = useState(false)
 
@@ -14,7 +14,16 @@ const Pet = React.memo(({stopLoader,addPetThunk,startLoader,dataPet,updatePhotoP
 
     useEffect(() => {
         stopLoader()
-    },[stopLoader])
+    },[dataPet])
+
+    useEffect(() => {
+        if (idUpdate) {
+            stopLoader()
+            console.log('sd');
+        }  
+    },[idUpdate])
+
+    
 
     return (
         <div className={s.pet}>
@@ -28,7 +37,7 @@ const Pet = React.memo(({stopLoader,addPetThunk,startLoader,dataPet,updatePhotoP
                 </div>
             </div>
             {addActive && <PetFormAdd startLoader={startLoader} addPetThunk={addPetThunk} setAddActive={setAddActive} />}
-            {updateActive && <PetFormUpdate startLoader={startLoader} updatePetDataThunk={updatePetDataThunk} dataPet={dataPet} number={number} setUpdateActive={setUpdateActive} />}
+            {updateActive && <PetFormUpdate setIdUpdate={setIdUpdate} startLoader={startLoader} updatePetDataThunk={updatePetDataThunk} dataPet={dataPet} number={number} setUpdateActive={setUpdateActive} />}
         </div>
     )
 })

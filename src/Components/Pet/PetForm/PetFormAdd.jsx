@@ -10,7 +10,6 @@ const PetFormAdd = React.memo(({setAddActive,addPetThunk,startLoader}) => {
         startLoader()
         addPetThunk(values)
         setSubmitting(false)
-        
     }
 
     const initialValues = {

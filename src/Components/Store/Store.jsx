@@ -1,12 +1,13 @@
 import  React, { useEffect, useState }  from 'react';
 import s from './Store.module.css'
-import StoreForm from './StoreForm/StoreForm';
+import StoreAdd from './StoreAdd/StoreAdd';
+import StoreSold from './StoreSold/StoreSold';
 
-const Store = React.memo(({statusAuthorization,stopLoader,getInventoryThunk,dataStatus,dataStatusFounding}) => {
+const Store = React.memo(({statusAuthorization,stopLoader,getInventoryThunk,dataStatus,dataStatusFounding,dataPet,setDataStorePet,dataStorePet}) => {
 
     useEffect(() => {
         stopLoader()
-    },[stopLoader])
+    },[dataPet])
 
     useEffect(() => {
         if (dataStatusFounding === false) {
@@ -26,9 +27,10 @@ const Store = React.memo(({statusAuthorization,stopLoader,getInventoryThunk,data
                 <p className={s['store__status-text']}>not available: {dataStatus['not available']}</p>
             </div>
             <div className={s.store__inner}>
-                <button onClick={() => setActiveMode(true)} className={s['store__inner-btn']}></button>
+                {dataStorePet.map((item) => <StoreSold />)}
             </div>
-            {activeMode && <StoreForm setActiveMode={setActiveMode}/>}
+            <button onClick={() => setActiveMode(true)} className={s['store__inner-btn']}></button>
+            {activeMode && <StoreAdd setDataStorePet={setDataStorePet} dataPet={dataPet} setActiveMode={setActiveMode}/>}
         </div>
     )
 })

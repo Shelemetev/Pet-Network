@@ -2,9 +2,10 @@ import { Formik } from 'formik';
 import s from './PetFormUpdate.module.css'
 import React, { useEffect } from 'react';
 
-const PetFormUpdate = React.memo(({setUpdateActive,number,dataPet,updatePetDataThunk,startLoader}) => {
+const PetFormUpdate = React.memo(({setUpdateActive,number,dataPet,updatePetDataThunk,startLoader,setIdUpdate}) => {
 
     const onSubmit = (values, { setSubmitting }) => {
+        setIdUpdate()
         updatePetDataThunk(values)
         setSubmitting(false)
         setUpdateActive(false)

@@ -1,0 +1,37 @@
+
+
+.store__icon {
+    background-color: #61B0FE;
+    border-radius: 20px;
+    border: 2px solid #0c0c0c;
+    position: relative;
+    z-index: 3;
+    padding: 20px;
+}
+
+.store__icon-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+}
+
+.store__icon-img--box {
+    width: 180px;
+    height: 180px;
+    border: #000000 solid 1px;
+    border-radius: 50%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+}
+
+.store__icon-text {
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 20px;
+}

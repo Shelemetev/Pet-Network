@@ -10,7 +10,7 @@ import PetContainer from './Components/Pet/PetContainer';
 
 const App = React.memo(({toSearching,statusAuthorization}) => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       {toSearching && <Loader />}  
       {statusAuthorization && <SitebarContainer /> }
       <Routes>

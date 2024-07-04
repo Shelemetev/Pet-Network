@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Shelemetev/Pet-Network.git/static/css/main.04e62d0e.css",
-    "main.js": "/Shelemetev/Pet-Network.git/static/js/main.37d617dd.js",
+    "main.js": "/Shelemetev/Pet-Network.git/static/js/main.91922ea2.js",
     "static/js/592.7f72a991.chunk.js": "/Shelemetev/Pet-Network.git/static/js/592.7f72a991.chunk.js",
     "static/media/Loader.gif": "/Shelemetev/Pet-Network.git/static/media/Loader.50c7519c8231d4864335.gif",
     "static/media/Client.png": "/Shelemetev/Pet-Network.git/static/media/Client.e6ef6177da924aad8517.png",
@@ -12,11 +12,11 @@
     "static/media/pencil-box.svg": "/Shelemetev/Pet-Network.git/static/media/pencil-box.6c1a4b5bb4a42eeb9ee0e70e74c4aa2e.svg",
     "static/media/door.svg": "/Shelemetev/Pet-Network.git/static/media/door.c11062124be05c2b7d1a81b629082be4.svg",
     "main.04e62d0e.css.map": "/Shelemetev/Pet-Network.git/static/css/main.04e62d0e.css.map",
-    "main.37d617dd.js.map": "/Shelemetev/Pet-Network.git/static/js/main.37d617dd.js.map",
+    "main.91922ea2.js.map": "/Shelemetev/Pet-Network.git/static/js/main.91922ea2.js.map",
     "592.7f72a991.chunk.js.map": "/Shelemetev/Pet-Network.git/static/js/592.7f72a991.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.04e62d0e.css",
-    "static/js/main.37d617dd.js"
+    "static/js/main.91922ea2.js"
   ]
 }

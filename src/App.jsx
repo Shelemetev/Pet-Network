@@ -7,10 +7,11 @@ import Loader from './comon/Loader/Loader';
 import SitebarContainer from './Components/Sitebar/SitebarContainer';
 import StoreContainer from './Components/Store/StoreContainer';
 import PetContainer from './Components/Pet/PetContainer';
+import { HashRouter } from "react-router-dom";
 
 const App = React.memo(({toSearching,statusAuthorization}) => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       {toSearching && <Loader />}  
       {statusAuthorization && <SitebarContainer /> }
       <Routes>
@@ -19,7 +20,7 @@ const App = React.memo(({toSearching,statusAuthorization}) => {
         <Route path='/store' element={<StoreContainer/>}/>
         <Route path='/pet' element={<PetContainer/>}/>
       </Routes> 
-    </BrowserRouter>
+    </HashRouter>
   );
 })
 

@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Pet-Network/static/css/main.ad964966.css",
+    "main.css": "/Pet-Network/static/css/main.f2acee8d.css",
     "main.js": "/Pet-Network/static/js/main.3783cf80.js",
     "static/js/592.7f72a991.chunk.js": "/Pet-Network/static/js/592.7f72a991.chunk.js",
     "static/media/Loader.gif": "/Pet-Network/static/media/Loader.50c7519c8231d4864335.gif",
@@ -11,12 +11,12 @@
     "static/media/burger-menu.svg": "/Pet-Network/static/media/burger-menu.bbf0851dfcde402707549eb3f3387dcf.svg",
     "static/media/pencil-box.svg": "/Pet-Network/static/media/pencil-box.6c1a4b5bb4a42eeb9ee0e70e74c4aa2e.svg",
     "static/media/door.svg": "/Pet-Network/static/media/door.c11062124be05c2b7d1a81b629082be4.svg",
-    "main.ad964966.css.map": "/Pet-Network/static/css/main.ad964966.css.map",
+    "main.f2acee8d.css.map": "/Pet-Network/static/css/main.f2acee8d.css.map",
     "main.3783cf80.js.map": "/Pet-Network/static/js/main.3783cf80.js.map",
     "592.7f72a991.chunk.js.map": "/Pet-Network/static/js/592.7f72a991.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ad964966.css",
+    "static/css/main.f2acee8d.css",
     "static/js/main.3783cf80.js"
   ]
 }

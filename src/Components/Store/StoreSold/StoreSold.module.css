@@ -5,7 +5,7 @@
     border-radius: 20px;
     border: 2px solid #0c0c0c;
     position: relative;
-    z-index: 2;
+    z-index: 1;
     padding: 20px;
 }
 
